@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+ # Axis MUI Dynamic Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ `axis-mui-dynamic-form` is a dynamic form component built with React and Material-UI. It simplifies form creation through a configurable object, supporting a variety of input types with built-in validation and state management.
 
-## Available Scripts
+ ## Installation
 
-In the project directory, you can run:
+ To install the package, run the following command:
 
-### `npm start`
+ ```bash
+ npm install axis-mui-dynamic-form
+ ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ Import the `DynamicForm` from the package and use it in your React application:
 
-### `npm test`
+ ```javascript
+ import { DynamicForm } from 'axis-mui-dynamic-form';
+ ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ### Form Configuration
 
-### `npm run build`
+ Define the `formObject` to configure the form:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ```javascript
+ const formObject = {
+   fieldGroups: [
+     {
+       label: "User Information",
+       fields: [
+         { name: "firstName", label: "First Name", type: "text", required: true },
+         { name: "email", label: "Email", type: "email", required: true },
+         // Add more fields as needed
+       ]
+     },
+     // More groups can be added here
+   ]
+ };
+ ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ ### Managing State and Handling Changes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Use React's `useState` to manage form values and handle changes:
 
-### `npm run eject`
+ ```javascript
+ import React, { useState } from "react";
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const App = () => {
+   const [formValues, setFormValues] = useState({});
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   const handleFieldChange = (fieldName, value) => {
+     setFormValues(prev => ({ ...prev, [fieldName]: value }));
+   };
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   return (
+     <DynamicForm
+       formObject={formObject}
+       formValues={formValues}
+       onFieldChange={handleFieldChange}
+     />
+   );
+ };
+ ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ ### Building and Submitting the Form
 
-## Learn More
+ Here is an example of how to submit the form data:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ ```javascript
+ const handleSubmit = (event) => {
+   event.preventDefault();
+   console.log("Form Data:", formValues);
+ };
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ return (
+   <form onSubmit={handleSubmit}>
+     <DynamicForm ... />
+     <button type="submit">Submit</button>
+   </form>
+ );
+ ```
 
-### Code Splitting
+ ## Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ For any issues or questions, please visit our [issues page](https://github.com/MouhannadKhodor/axis-mui-dynamic-form/issues).
 
-### Analyzing the Bundle Size
+ ## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ This project is licensed under the MIT License - see the [LICENSE](https://github.com/MouhannadKhodor/axis-mui-dynamic-form/blob/main/LICENSE) file for details.
