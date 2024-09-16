@@ -18,9 +18,7 @@ import TimePickerInput from "./components/Reusables/TimePickerInput";
 import FileInput from "./components/Reusables/FileInput";
 import TransferList from "./components/Reusables/TransferList";
 
-
 // Importing all the reusable components
- 
 
 // Updated renderField function using new reusable components
 const renderField = (field, value, onChange) => {
@@ -184,9 +182,7 @@ const renderField = (field, value, onChange) => {
 };
 
 const DynamicForm = ({ formObject, formValues, onFieldChange }) => {
-
-  
-  return (  
+  return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <form>
         <Grid container spacing={2}>

@@ -10,4 +10,4 @@ const DatePickerInput = ({ label, value, onChange, required }) => (
   />
 );
 
-export default DatePickerInput
+export default DatePickerInput;
