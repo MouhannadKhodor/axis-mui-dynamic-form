@@ -1,3 +1,4 @@
+import React from "react";
 import { FormControlLabel, Switch } from "@mui/material";
 
 const SwitchInput = ({ label, checked, onChange, required }) => (
