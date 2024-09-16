@@ -1,4 +1,4 @@
 import "./index.css";
-import DynamicForm from "./App";
+import DynamicForm from "./DynamicForm";
 
 export { DynamicForm };
