@@ -1,6 +1,6 @@
 {
   "name": "axis-mui-dynamic-form",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "description": "This is an MUI dynamic form that will be used by axis team",
   "main": "dist/index.js",
@@ -16,7 +16,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
-  
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
