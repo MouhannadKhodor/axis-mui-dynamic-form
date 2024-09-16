@@ -44,9 +44,5 @@ module.exports = {
       root: "ReactDOM",
     },
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-    }),
-  ],
+  // Removed DefinePlugin for NODE_ENV
 };

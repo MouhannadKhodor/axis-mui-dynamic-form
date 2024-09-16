@@ -1,3 +1,4 @@
+// index.js
 import "./index.css";
 import React from 'react';
 import DynamicForm from "./DynamicForm";
