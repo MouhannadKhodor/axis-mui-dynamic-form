@@ -20,16 +20,17 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.0",
-    "webpack": "^5.0.0",
-    "webpack-cli": "^5.1.4",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/x-date-pickers": "^7.17.0",
+    "babel-loader": "^8.0.0",
+    "css-loader": "^7.1.2",
     "dayjs": "^1.11.13",
     "mui-tel-input": "^6.0.0",
-    "@tinymce/tinymce-react": "^5.1.1",
-    "react-dropzone": "^14.2.3"
+    "react-dropzone": "^14.2.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^5.1.4"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/MouhannadKhodor/axis-mui-dynamic-form/issues"
   },
-  "homepage": "https://github.com/MouhannadKhodor/axis-mui-dynamic-form#readme"
+  "homepage": "https://github.com/MouhannadKhodor/axis-mui-dynamic-form#readme",
+  "dependencies": {
+    "@tinymce/tinymce-react": "^5.1.1"
+  }
 }
