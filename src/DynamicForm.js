@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -8,6 +8,7 @@ import EmailInput from "./components/Reusables/EmailInput";
 import SliderInput from "./components/Reusables/SliderInput";
 import PhoneInput from "./components/Reusables/PhoneInput";
 import MultiSelectAutocomplete from "./components/Reusables/MultiSelectAutocomplete";
+import SingleSelectAutocomplete from "./components/Reusables/SingleSelectAutocomplete";
 import RadioGroupInput from "./components/Reusables/RadioGroupInput";
 import CheckboxGroupInput from "./components/Reusables/CheckboxGroupInput";
 import SwitchInput from "./components/Reusables/SwitchInput";
@@ -17,8 +18,12 @@ import DateTimePickerInput from "./components/Reusables/DateTimePickerInput";
 import TimePickerInput from "./components/Reusables/TimePickerInput";
 import FileInput from "./components/Reusables/FileInput";
 import TransferList from "./components/Reusables/TransferList";
-
-// Importing all the reusable components
+import HTMLDateInput from "./components/Reusables/HTMLDateInput";
+import HTMLDateTimeInput from "./components/Reusables/HTMLDateTimeInput";
+import HTMLTimeInput from "./components/Reusables/HTMLTimeInput";
+import HTMLMultiSelect from "./components/Reusables/HTMLMultiSelect";
+import HTMLSelect from "./components/Reusables/HTMLSelect";
+import RichTextInput from "./components/Reusables/RichTextInput";
 
 // Updated renderField function using new reusable components
 const renderField = (field, value, onChange) => {
@@ -74,16 +79,6 @@ const renderField = (field, value, onChange) => {
           required={field.required}
         />
       );
-    case "multi-select":
-      return (
-        <MultiSelectAutocomplete
-          label={field.label}
-          options={field.options}
-          value={value}
-          onChange={onChange}
-          required={field.required}
-        />
-      );
     case "radio-group":
       return (
         <RadioGroupInput
@@ -115,9 +110,39 @@ const renderField = (field, value, onChange) => {
       );
     case "autocomplete":
       return (
+        <SingleSelectAutocomplete
+          label={field.label}
+          options={field.options || []}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "multi-select":
+      return (
         <MultiSelectAutocomplete
           label={field.label}
-          options={field.options}
+          options={field.options || []}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "html-select":
+      return (
+        <HTMLSelect
+          label={field.label}
+          options={field.options || []}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "html-multi-select":
+      return (
+        <HTMLMultiSelect
+          label={field.label}
+          options={field.options || []}
           value={value}
           onChange={onChange}
           required={field.required}
@@ -132,7 +157,7 @@ const renderField = (field, value, onChange) => {
           required={field.required}
         />
       );
-    case "date":
+    case "datePicker":
       return (
         <DatePickerInput
           label={field.label}
@@ -141,7 +166,7 @@ const renderField = (field, value, onChange) => {
           required={field.required}
         />
       );
-    case "datetime":
+    case "datetimePicker":
       return (
         <DateTimePickerInput
           label={field.label}
@@ -150,9 +175,36 @@ const renderField = (field, value, onChange) => {
           required={field.required}
         />
       );
-    case "time":
+    case "timePicker":
       return (
         <TimePickerInput
+          label={field.label}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "date":
+      return (
+        <HTMLDateInput
+          label={field.label}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "datetime":
+      return (
+        <HTMLDateTimeInput
+          label={field.label}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+    case "time":
+      return (
+        <HTMLTimeInput
           label={field.label}
           value={value}
           onChange={onChange}
@@ -176,12 +228,22 @@ const renderField = (field, value, onChange) => {
           onChange={onChange}
         />
       );
+    case "richText":
+      return (
+        <RichTextInput
+          label={field.label}
+          value={value}
+          onChange={onChange}
+          required={field.required}
+        />
+      );
+
     default:
       return <div>Unsupported Field</div>;
   }
 };
 
-const DynamicForm = ({ formObject, formValues, onFieldChange }) => {
+const App = ({ formObject, formValues, onFieldChange }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <form>
@@ -208,4 +270,4 @@ const DynamicForm = ({ formObject, formValues, onFieldChange }) => {
   );
 };
 
-export default DynamicForm;
+export default App;

@@ -10,9 +10,9 @@ const RadioGroupInput = ({ label, options, value, onChange, required }) => (
     {options.map((option, idx) => (
       <FormControlLabel
         key={idx}
-        value={option}
+        value={option.value} // Fix: use option.value instead of the whole object
         control={<Radio />}
-        label={option}
+        label={option.label} // Fix: use option.label for display
       />
     ))}
   </RadioGroup>

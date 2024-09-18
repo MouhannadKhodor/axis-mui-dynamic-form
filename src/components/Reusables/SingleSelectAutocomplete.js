@@ -1,22 +1,19 @@
 import React from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
-const MultiSelectAutocomplete = ({
+const SingleSelectAutocomplete = ({
   label,
   options,
   value,
   onChange,
   required,
 }) => {
-  
 
   return (
     <Autocomplete
-      multiple
-      limitTags={3}
       options={options}
       getOptionLabel={(option) => (option?.label ? option.label : "")}
-      value={value || []} // Ensure value is always an array
+      value={value || null} // Ensure the value is either null or a valid object
       onChange={(e, newValue) => onChange(newValue)}
       renderInput={(params) => (
         <TextField {...params} label={label} required={required} />
@@ -25,4 +22,4 @@ const MultiSelectAutocomplete = ({
   );
 };
 
-export default MultiSelectAutocomplete;
+export default SingleSelectAutocomplete;
