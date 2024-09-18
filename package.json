@@ -1,6 +1,6 @@
 {
   "name": "axis-mui-dynamic-form",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": false,
   "description": "This is an MUI dynamic form that will be used by axis team",
   "main": "dist/index.js",
