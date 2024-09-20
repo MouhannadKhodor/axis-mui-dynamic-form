@@ -14,20 +14,20 @@
   "peerDependencies": {
     "@mui/material": "^6.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/x-date-pickers": "^7.17.0",
+    "dayjs": "^1.11.13",
+    "mui-tel-input": "^6.0.0",
+    "react-dropzone": "^14.2.3",
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/x-date-pickers": "^7.17.0",
     "babel-loader": "^8.0.0",
     "css-loader": "^7.1.2",
-    "dayjs": "^1.11.13",
-    "mui-tel-input": "^6.0.0",
-    "react-dropzone": "^14.2.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.0.0",
     "webpack-cli": "^5.1.4"
